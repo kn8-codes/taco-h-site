@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — Taco H, Akron Ohio</title>
+<meta name="description" content="Taco H menu — tacos, birria, quesabirria, burritos. Akron, Ohio.">
+<link rel="stylesheet" href="./assets/css/taco.css">
+</head>
+<body class="en">
+<header class="site-header">
+  <div class="wrap">
+    <img class="badge" src="./assets/img/mascot_badge_circle_2026-09-22.png" alt="Taco H mascot">
+    <div>
+      <a class="wordmark" href="./index.html">TACO H</a>
+      <div class="tagline">street tacos · akron</div>
+    </div>
+    <nav>
+      <a href="./index.html" data-lang="en">Today's stop</a>
+      <a href="./index.html" data-lang="es">Parada de hoy</a>
+      <a href="./contact.html" data-lang="en">Book / Contact</a>
+      <a href="./contact.html" data-lang="es">Reservar / Contacto</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+        <button data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="folk"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sub" style="font-family:var(--font-stamp);letter-spacing:6px;color:var(--dark);text-transform:uppercase;opacity:.8;font-size:1.1rem;text-align:center">Menú</div>
+    <h1 style="font-family:var(--font-display);font-size:3.2rem;letter-spacing:2px;color:var(--brick-dark);text-align:center;line-height:1.1">TACO H</h1>
+    <div class="menu-grid" id="menu-groups" style="display:grid;gap:20px;grid-template-columns:1fr;margin-top:22px">
+<div class="menu-group"><h3 data-lang="en">Mains</h3><h3 data-lang="es">Platillos</h3><div class="menu-item"><span><span data-lang="en">Tacos (3)</span><span data-lang="es">Tacos (3)</span><span class="item-desc" data-lang="en">Mexican style: corn tortilla, onion, cilantro, lime</span><span class="item-desc" data-lang="es">Estilo mexicano: tortilla de maíz, cebolla, cilantro, limón</span></span><span class="price">$12</span></div><div class="menu-item"><span><span data-lang="en">Birria Tacos (3)</span><span data-lang="es">Tacos de birria (3)</span><span class="item-desc" data-lang="en">Choice of corn or flour tortilla, cheese, onion, cilantro, lime, consome</span><span class="item-desc" data-lang="es">Tortilla de maíz o harina a elegir, queso, cebolla, cilantro, limón, consomé</span></span><span class="price">$12</span></div><div class="menu-item"><span><span data-lang="en">Quesabirria</span><span data-lang="es">Quesabirria</span><span class="item-desc" data-lang="en">Cheese, onion, cilantro, lime, consome</span><span class="item-desc" data-lang="es">Queso, cebolla, cilantro, limón, consomé</span></span><span class="price">$13</span></div><div class="menu-item"><span><span data-lang="en">Quesadilla</span><span data-lang="es">Quesadilla</span><span class="item-desc" data-lang="en">Your choice of meat, cheese, onion, cilantro</span><span class="item-desc" data-lang="es">Carne a elegir, queso, cebolla, cilantro</span></span><span class="price">$13</span></div><div class="menu-item"><span><span data-lang="en">Burrito</span><span data-lang="es">Burrito</span><span class="item-desc" data-lang="en">Choice of meat, rice, beans, cheese, onion, cilantro</span><span class="item-desc" data-lang="es">Carne a elegir, arroz, frijoles, queso, cebolla, cilantro</span></span><span class="price">$13</span></div><div class="menu-item"><span><span data-lang="en">"Supreme" add-on</span><span data-lang="es">Extra "Supreme"</span><span class="item-desc" data-lang="en">Choice of corn or flour tortilla, lettuce, tomato, sour cream, cheese</span><span class="item-desc" data-lang="es">Tortilla de maíz o harina a elegir, lechuga, tomate, crema, queso</span></span><span class="price">+$1</span></div><div class="menu-item"><span><span data-lang="en">Meat of choice</span><span data-lang="es">Carne a elegir</span></span><span class="price">—</span></div></div><div class="menu-group"><h3 data-lang="en">Sides</h3><h3 data-lang="es">Acompañamientos</h3><div class="menu-item"><span><span data-lang="en">Rice</span><span data-lang="es">Arroz</span></span><span class="price">$5</span></div><div class="menu-item"><span><span data-lang="en">Beans</span><span data-lang="es">Frijoles</span></span><span class="price">$5</span></div><div class="menu-item"><span><span data-lang="en">Rice & Beans</span><span data-lang="es">Arroz y frijoles</span></span><span class="price">$5</span></div><div class="menu-item"><span><span data-lang="en">Single Taco</span><span data-lang="es">Taco individual</span></span><span class="price">$4</span></div></div><div class="menu-group"><h3 data-lang="en">Drinks</h3><h3 data-lang="es">Bebidas</h3><div class="menu-item"><span><span data-lang="en">Jarritos</span><span data-lang="es">Jarritos</span></span><span class="price">$3</span></div><div class="menu-item"><span><span data-lang="en">Pepsi (can)</span><span data-lang="es">Pepsi (lata)</span></span><span class="price">$2</span></div><div class="menu-item"><span><span data-lang="en">Water Bottle</span><span data-lang="es">Agua embotellada</span></span><span class="price">$1</span></div></div>
+    </div>
+    <p class="menu-note" data-lang="en">Meats: Al Pastor · Birria · Carnitas · Chicken · Chorizo · Steak · Shrimp · Fish / Tilapia · Vegetables. "Supreme" add-on +$1 — choice of corn or flour tortilla, lettuce, tomato, sour cream, cheese.</p>
+    <p class="menu-note" data-lang="es">Carnes: Al Pastor · Birria · Carnitas · Chicken · Chorizo · Steak · Shrimp · Fish / Tilapia · Vegetables. Extra "Supreme" +$1 — tortilla de maíz o harina a elegir, lechuga, tomate, crema, queso.</p>
+    <p class="menu-note" data-lang="en" style="font-size:.75rem">Prices from the Taco H menu card. Menu single-source: data/menu.json — site and QR read the same file.</p>
+    <p class="menu-note" data-lang="es" style="font-size:.75rem">Precios de la tarjeta del menú Taco H. Fuente única: data/menu.json — el sitio y el QR leen el mismo archivo.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Taco H LLC</strong> · Akron, Ohio</span>
+    <span><a href="tel:+12167605828">216-760-5828</a></span>
+    <span>taco.h.akron@gmail.com</span>
+    <span><a href="https://www.instagram.com/Taco_H_Akron" target="_blank" rel="noopener">@Taco_H_Akron</a></span>
+  </div>
+</footer>
+
+<script src="./assets/js/main.js"></script>
+<script>
+/* Menu renders from data/menu.json = single source (QR + site read the same file).
+   Static rows above serve as no-JS / offline fallback and are replaced on load. */
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('./data/menu.json').then(function (r) { return r.json(); }).then(function (data) {
+    var box = document.getElementById('menu-groups');
+    function row(item) {
+      var desc = '';
+      if (item.desc_en) {
+        desc = '<span class="item-desc" data-lang="en">' + item.desc_en + '</span>' +
+               '<span class="item-desc" data-lang="es">' + item.desc_es + '</span>';
+      }
+      return '<div class="menu-item"><span><span data-lang="en">' + item.en + '</span><span data-lang="es">' + item.es + '</span>' + desc + '</span><span class="price">' + item.price + '</span></div>';
+    }
+    var groups = [
+      { key: 'mains', en: 'Mains', es: 'Platillos' },
+      { key: 'sides', en: 'Sides', es: 'Acompañamientos' },
+      { key: 'drinks', en: 'Drinks', es: 'Bebidas' }
+    ];
+    var html = '';
+    groups.forEach(function (g) {
+      html += '<div class="menu-group"><h3 data-lang="en">' + g.en + '</h3><h3 data-lang="es">' + g.es + '</h3>';
+      data[g.key].forEach(function (item) { html += row(item); });
+      if (g.key === 'mains') {
+        html += row({ en: 'Meat of choice', es: 'Carne a elegir', price: '—' });
+      }
+      html += '</div>';
+    });
+    box.innerHTML = html;
+  }).catch(function () { /* fallback already in markup */ });
+});
+</script>
+</body>
+</html>

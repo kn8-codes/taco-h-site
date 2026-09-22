@@ -1,0 +1,153 @@
+/* ============================================================
+   TACO H — brand stylesheet v7 (modular / spacious / mobile-first)
+   2026-09-22 · Egon · tokens stable; layout restructured
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Rubik:wght@400;600;700&display=swap');
+
+:root{
+  --parchment:#f1d8ae; --dark:#4A3020; --dark2:#3A2418;
+  --brick:#B23A2A; --brick-dark:#8E2B1E; --gold:#E0A100; --green:#2E5233;
+  --ink:#2B2118; --paper:#FFFDF6;
+  --font-display:Georgia,'Times New Roman',serif;
+  --font-stamp:'Bebas Neue','Archivo Black',sans-serif;
+  --font-head:'Archivo Black',sans-serif;
+  --font-body:'Rubik',system-ui,sans-serif;
+  --r-lg:20px;  /* module radius */
+  --r-md:14px;  /* inner radius */
+  --shadow:0 6px 18px rgba(0,0,0,.28);
+  --sp:48px;    /* section rhythm */
+}
+
+*{box-sizing:border-box;margin:0}
+img{max-width:100%}
+a{color:var(--brick-dark)}
+h1{font-weight:700}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:#EFE3CE;line-height:1.6;
+  background:radial-gradient(circle at 25% 8%, rgba(224,161,0,.1), transparent 45%),
+             radial-gradient(circle at 85% 95%, rgba(255,253,246,.05), transparent 50%),
+             var(--dark)}
+
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+
+/* folk-art band */
+.folk{height:16px;background:repeating-linear-gradient(45deg,var(--brick) 0 12px,var(--gold) 12px 24px,var(--green) 24px 36px);border-top:3px solid var(--dark);border-bottom:3px solid var(--dark)}
+
+/* generic module — the rounded square every decision lives in */
+.module{background:var(--paper);color:var(--ink);border:2px solid var(--dark);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow)}
+.map-mod{margin-top:28px;padding:14px}
+
+/* header */
+.site-header{padding:22px 0 18px}
+.site-header .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.badge{width:66px;height:66px;border-radius:50%;border:4px solid var(--dark);object-fit:cover;box-shadow:0 3px 8px rgba(74,48,32,.3);flex:0 0 auto}
+.wordmark{font-family:var(--font-display);font-weight:700;font-size:1.8rem;letter-spacing:2px;color:var(--gold);text-decoration:none}
+.tagline{font-family:var(--font-stamp);font-size:.85rem;letter-spacing:3px;color:#D8C4A3;text-transform:uppercase;opacity:.85;margin-top:2px}
+nav{margin-left:auto;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav a{color:#EFE3CE;text-decoration:none;font-family:var(--font-head);font-size:.8rem;letter-spacing:1px;text-transform:uppercase}
+nav a:hover{color:var(--gold)}
+.lang{display:flex;gap:6px}
+.lang button{background:transparent;border:1.5px solid var(--gold);border-radius:999px;padding:5px 12px;font-size:.8rem;cursor:pointer;color:var(--gold)}
+.lang button.active{background:var(--gold);color:var(--dark2)}
+
+/* hero — modular: badge + title + copy in one big rounded square */
+.hero{text-align:center;padding:14px 0}
+.hero-mod{background:var(--paper);color:var(--ink);border:2px solid var(--dark);border-radius:var(--r-lg);padding:40px 30px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center}
+.badge-lg{width:200px;height:200px;border-radius:50%;border:8px solid var(--dark);box-shadow:0 0 0 4px var(--gold),0 10px 22px rgba(74,48,32,.35);object-fit:cover;object-position:center 20%;margin:0 auto 20px}
+.hero h1{font-family:var(--font-display);font-size:clamp(3rem, 10vw, 5.2rem);letter-spacing:3px;color:var(--brick-dark);line-height:1.05;text-transform:uppercase}
+.hero .sub{font-family:var(--font-stamp);font-size:1.15rem;letter-spacing:6px;color:var(--green);text-transform:uppercase;margin-top:20px}
+.hero .copy{max-width:560px;margin:20px auto 0;color:#5c4630;font-size:1.08rem}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;font-family:var(--font-head);font-size:.9rem;letter-spacing:1px;text-transform:uppercase;background:var(--gold);color:var(--dark2);padding:15px 30px;border-radius:999px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.25);border:2px solid var(--dark)}
+.btn:hover{background:#c89400}
+
+/* sections: uniform rhythm — thin section pads + 28 module gaps = 28 everywhere */
+section{padding:14px 0}
+.grid{display:grid;gap:28px;grid-template-columns:1fr}
+@media(min-width:860px){.grid{grid-template-columns:1.15fr .85fr}}
+.card{background:var(--paper);color:var(--ink);border:2px solid var(--dark);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow)}
+.card h3{font-family:var(--font-head);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--parchment);background:var(--brick-dark);display:inline-block;padding:4px 12px;border-radius:6px;margin-bottom:16px}
+.stop{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.5px;color:var(--ink)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chip{font-family:var(--font-stamp);letter-spacing:1px;border:1.5px solid var(--brick);color:var(--brick-dark);border-radius:999px;padding:5px 14px;font-size:.95rem;background:var(--parchment)}
+.map-mod{margin-top:28px;padding:12px}
+.map-frame{border:0;border-radius:calc(var(--r-lg) - 8px);width:100%;height:280px;background:#ddd;display:block}
+
+/* menu */
+.menu-grid{display:grid;gap:28px;grid-template-columns:1fr}
+@media(min-width:860px){.menu-grid{grid-template-columns:1fr 1fr}}
+.menu-group{background:var(--paper);color:var(--ink);border:2px solid var(--dark);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow)}
+.menu-group h3{font-family:var(--font-head);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--parchment);background:var(--brick-dark);display:inline-block;padding:4px 12px;border-radius:6px;margin-bottom:16px}
+.menu-item{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dotted rgba(43,33,24,.4);color:var(--ink)}
+.menu-item .price{font-weight:700;color:var(--green);white-space:nowrap}
+.item-desc{display:block;font-size:.8rem;color:#8a7a62;margin-top:3px}
+.menu-note{font-size:.85rem;color:#b8a27f;margin-top:18px;text-align:center}
+
+/* stop pods — Today's stop and Contact each in their own module */
+.stop-pods{display:grid;gap:28px;grid-template-columns:1fr 1fr;align-items:stretch}
+@media(max-width:760px){.stop-pods{grid-template-columns:1fr}}
+.module h3,.card h3,.stop-side h3,.contact-side h3{font-family:var(--font-head);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--parchment);background:var(--brick-dark);display:inline-block;padding:4px 12px;border-radius:6px;margin-bottom:16px}
+.contact-mini{display:flex;flex-direction:column;gap:12px;font-size:1.02rem;margin-top:2px}
+.contact-mini a{font-weight:700;color:var(--brick-dark)}
+.contact-mini .k{font-family:var(--font-head);font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;color:#8a7a62;display:block}
+
+/* home menu — full real-card entries, two columns */
+.home-menu{display:grid;gap:28px;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.home-menu{grid-template-columns:1fr}}
+.home-menu h4{font-family:var(--font-head);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--brick-dark);border-bottom:2px solid var(--corn);display:inline-block;padding-bottom:4px;margin:0 0 10px}
+.home-menu .chips{margin-top:10px}
+
+/* social bars — modular rounded squares */
+.social{margin-top:0;display:grid;gap:28px;grid-template-columns:1fr}
+@media(min-width:640px){.social{grid-template-columns:1fr 1fr}}
+.social a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px;border-radius:var(--r-lg);text-decoration:none;color:#fff;font-family:var(--font-head);font-size:.85rem;letter-spacing:1px;text-transform:uppercase;border:2px solid var(--dark);box-shadow:var(--shadow)}
+.social .fb{background:var(--green)}
+.social .ig{background:var(--brick)}
+.social .handle{font-family:var(--font-stamp);font-size:1.25rem;letter-spacing:2px}
+
+/* contact */
+.contact-card{background:var(--paper);color:var(--ink);border:2px solid var(--dark);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow);max-width:560px;margin:22px auto 0}
+.contact-card a{font-weight:700}
+
+/* footer */
+footer{background:var(--dark2);color:#D8C4A3;padding:30px 0;font-size:.95rem;border-top:4px solid var(--gold);margin-top:14px}
+footer a{color:var(--gold)}
+footer strong{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:1px;color:var(--gold)}
+footer .wrap{display:flex;justify-content:center;text-align:center;gap:26px;flex-wrap:wrap}
+
+/* language hiding */
+[data-lang]{display:none}
+body.en [data-lang="en"]{display:block}
+body.es [data-lang="es"]{display:block}
+
+/* skeleton flags never ship */
+.skeleton-flag{display:none}
+
+/* ============ MOBILE (phone-first hardening) ============ */
+@media (max-width:640px){
+  .wrap{padding:0 14px}
+  .site-header{padding:16px 0 14px}
+  .badge{width:56px;height:56px}
+  .wordmark{font-size:1.5rem}
+  nav{width:100%;justify-content:flex-start;gap:14px;margin-left:0}
+  nav a{font-size:.78rem}
+  .folk{height:12px}
+  .hero{padding:14px 0}
+  .hero-mod{padding:30px 16px 26px;border-radius:16px}
+  .badge-lg{width:150px;height:150px;border-width:6px}
+  .hero h1{font-size:clamp(2.5rem, 12vw, 3.4rem);letter-spacing:2px}
+  .hero .sub{font-size:1rem;letter-spacing:4px}
+  .hero .copy{font-size:1rem}
+  section{padding:14px 0}
+  .card,.menu-group,.module{padding:22px 16px;border-radius:16px}
+  .grid,.menu-grid,.stop-pods{gap:20px}
+  .map-mod{margin-top:20px;padding:8px}
+  .map-frame{height:220px}
+  .social{gap:20px}
+  .social a{flex-wrap:wrap;padding:16px 18px}
+  .btn{width:100%;text-align:center}
+  .hero-cta{width:100%}
+  footer{margin-top:0}
+  footer .wrap{gap:14px}
+}

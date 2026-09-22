@@ -1,0 +1,24 @@
+{
+  "version": "v1-real",
+  "_comment": "Single-source menu (QR landing). From Taco H menu card photo (09-18; re-read 09-22). ES translations DRAFT — Kate/Jose QA. Verify against final operated menu before launch.",
+  "mains": [
+    { "en": "Tacos (3)", "es": "Tacos (3)", "price": "$12", "desc_en": "Mexican style: corn tortilla, onion, cilantro, lime", "desc_es": "Estilo mexicano: tortilla de maíz, cebolla, cilantro, limón" },
+    { "en": "Birria Tacos (3)", "es": "Tacos de birria (3)", "price": "$12", "desc_en": "Choice of corn or flour tortilla, cheese, onion, cilantro, lime, consome", "desc_es": "Tortilla de maíz o harina a elegir, queso, cebolla, cilantro, limón, consomé" },
+    { "en": "Quesabirria", "es": "Quesabirria", "price": "$13", "desc_en": "Cheese, onion, cilantro, lime, consome", "desc_es": "Queso, cebolla, cilantro, limón, consomé" },
+    { "en": "Quesadilla", "es": "Quesadilla", "price": "$13", "desc_en": "Your choice of meat, cheese, onion, cilantro", "desc_es": "Carne a elegir, queso, cebolla, cilantro" },
+    { "en": "Burrito", "es": "Burrito", "price": "$13", "desc_en": "Choice of meat, rice, beans, cheese, onion, cilantro", "desc_es": "Carne a elegir, arroz, frijoles, queso, cebolla, cilantro" },
+    { "en": "\"Supreme\" add-on", "es": "Extra \"Supreme\"", "price": "+$1", "desc_en": "Choice of corn or flour tortilla, lettuce, tomato, sour cream, cheese", "desc_es": "Tortilla de maíz o harina a elegir, lechuga, tomate, crema, queso" }
+  ],
+  "meats": ["Al Pastor", "Birria", "Carnitas", "Chicken", "Chorizo", "Steak", "Shrimp", "Fish / Tilapia", "Vegetables"],
+  "sides": [
+    { "en": "Rice", "es": "Arroz", "price": "$5" },
+    { "en": "Beans", "es": "Frijoles", "price": "$5" },
+    { "en": "Rice & Beans", "es": "Arroz y frijoles", "price": "$5" },
+    { "en": "Single Taco", "es": "Taco individual", "price": "$4" }
+  ],
+  "drinks": [
+    { "en": "Jarritos", "es": "Jarritos", "price": "$3" },
+    { "en": "Pepsi (can)", "es": "Pepsi (lata)", "price": "$2" },
+    { "en": "Water Bottle", "es": "Agua embotellada", "price": "$1" }
+  ]
+}

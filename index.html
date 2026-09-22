@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taco H — Akron, Ohio</title>
+<!-- v7-skin · modular · stop-band w/ contact · 2026-09-22 -->
+<meta name="description" content="Taco H — authentic Mexican street food from the truck to your corner in Akron, Ohio. Birria tacos, quesabirria, burritos.">
+<meta property="og:title" content="Taco H — Akron, Ohio">
+<meta property="og:description" content="Authentic Mexican street food from the Taco H truck. Find us in Akron, Ohio.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="./assets/css/taco.css">
+</head>
+<body class="en">
+
+<header class="site-header">
+  <div class="wrap">
+    <img class="badge" src="./assets/img/mascot_badge_circle_2026-09-22.png" alt="Taco H mascot">
+    <div>
+      <a class="wordmark" href="./index.html">TACO H</a>
+      <div class="tagline">street tacos · akron</div>
+    </div>
+    <nav>
+      <a href="./menu.html" data-lang="en">Menu</a>
+      <a href="./menu.html" data-lang="es">Menú</a>
+      <a href="./contact.html" data-lang="en">Book / Contact</a>
+      <a href="./contact.html" data-lang="es">Reservar / Contacto</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+        <button data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="folk"></div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-mod">
+      <img class="badge-lg" src="./assets/img/mascot_badge_circle_2026-09-22.png" alt="Taco H mascot">
+      <h1>TACO H</h1>
+      <div class="sub" data-lang="en">authentic mexican street food</div>
+      <div class="sub" data-lang="es">comida callejera mexicana auténtica</div>
+      <p class="copy" data-lang="en">Birria tacos, quesabirria, burritos — from the truck to your corner in Akron, Ohio.</p>
+      <p class="copy" data-lang="es">Tacos de birria, quesabirria, burritos — del camión a tu esquina en Akron, Ohio.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#where"><span data-lang="en">Today's stop</span><span data-lang="es">Parada de hoy</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="where">
+  <div class="wrap">
+    <div class="stop-pods">
+      <div class="module">
+        <h3 data-lang="en">Today's stop</h3>
+        <h3 data-lang="es">Parada de hoy</h3>
+        <div id="stop-card">
+          <div class="stop">Highland Square, Akron OH</div>
+          <div class="stop-time" style="color:#5c4630;margin-top:6px">Wed 5pm–8pm · Sat 12pm–8pm</div>
+          <div style="color:#5c4630;margin-top:2px">Check socials for pop-up stops</div>
+        </div>
+        <div class="chips">
+          <span class="chip">Wed 5–8</span>
+          <span class="chip">Sat 12–8</span>
+          <span class="chip">Pop-ups</span>
+        </div>
+      </div>
+      <div class="module">
+        <h3 data-lang="en">Contact</h3>
+        <h3 data-lang="es">Contacto</h3>
+        <div class="contact-mini">
+          <span><span class="k" data-lang="en">Phone</span><span class="k" data-lang="es">Teléfono</span> <a href="tel:+12167605828">216-760-5828</a></span>
+          <span><span class="k" data-lang="en">Email</span><span class="k" data-lang="es">Correo</span> <a href="mailto:taco.h.akron@gmail.com">taco.h.akron@gmail.com</a></span>
+          <span><span class="k" data-lang="en">Location</span><span class="k" data-lang="es">Ubicación</span> Akron, Ohio</span>
+        </div>
+      </div>
+    </div>
+    <div class="module map-mod">
+      <iframe class="map-frame" id="stop-map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Highland%20Square%2C%20Akron%2C%20OH&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="module">
+      <h3 data-lang="en">The menu</h3>
+      <h3 data-lang="es">El menú</h3>
+      <div class="home-menu" id="home-menu">
+        <!-- static real-card fallback; JS refreshes from data/menu.json when available -->
+        <div>
+          <h4 data-lang="en">Mains</h4><h4 data-lang="es">Platillos</h4>
+          <div class="menu-item"><span>Tacos (3)</span><span class="price">$12</span></div>
+          <div class="menu-item"><span>Birria Tacos (3)</span><span class="price">$12</span></div>
+          <div class="menu-item"><span>Quesabirria</span><span class="price">$13</span></div>
+          <div class="menu-item"><span>Quesadilla</span><span class="price">$13</span></div>
+          <div class="menu-item"><span>Burrito</span><span class="price">$13</span></div>
+          <div class="menu-item"><span data-lang="en">"Supreme" add-on</span><span data-lang="es">Extra "Supreme"</span><span class="price">+$1</span></div>
+          <h4 data-lang="en" style="margin-top:22px">Meats</h4><h4 data-lang="es" style="margin-top:22px">Carnes</h4>
+          <div class="chips">
+            <span class="chip">Al Pastor</span><span class="chip">Birria</span><span class="chip">Carnitas</span>
+            <span class="chip">Chicken</span><span class="chip">Chorizo</span><span class="chip">Steak</span>
+            <span class="chip">Shrimp</span><span class="chip">Fish</span><span class="chip">Veggies</span>
+          </div>
+        </div>
+        <div>
+          <h4 data-lang="en">Sides</h4><h4 data-lang="es">Acompañamientos</h4>
+          <div class="menu-item"><span>Rice</span><span class="price">$5</span></div>
+          <div class="menu-item"><span>Beans</span><span class="price">$5</span></div>
+          <div class="menu-item"><span>Rice & Beans</span><span class="price">$5</span></div>
+          <div class="menu-item"><span>Single Taco</span><span class="price">$4</span></div>
+          <h4 data-lang="en" style="margin-top:22px">Drinks</h4><h4 data-lang="es" style="margin-top:22px">Bebidas</h4>
+          <div class="menu-item"><span>Jarritos</span><span class="price">$3</span></div>
+          <div class="menu-item"><span>Pepsi (can)</span><span class="price">$2</span></div>
+          <div class="menu-item"><span>Water Bottle</span><span class="price">$1</span></div>
+        </div>
+      </div>
+      <p style="margin-top:22px"><a class="btn" href="./menu.html"><span data-lang="en">Full menu</span><span data-lang="es">Menú completo</span></a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="social">
+      <a class="fb" href="#" data-fb-todo="verify FB page URL from seed 'Taco H'"><span>✔</span><span data-lang="en">Follow us on Facebook</span><span data-lang="es">Síguenos en Facebook</span><span class="handle">Taco H</span></a>
+      <a class="ig" href="https://www.instagram.com/Taco_H_Akron" target="_blank" rel="noopener"><span>📷</span><span>Instagram</span><span class="handle">@Taco_H_Akron</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Taco H</strong> · Akron, Ohio</span>
+    <span><a href="https://www.instagram.com/Taco_H_Akron" target="_blank" rel="noopener">@Taco_H_Akron</a></span>
+    <span>© 2026 Taco H LLC</span>
+  </div>
+</footer>
+
+<script src="./assets/js/main.js"></script>
+<script>
+/* Home menu refreshes from the single source (data/menu.json); static rows above are the no-JS fallback. */
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('./data/menu.json').then(function (r) { return r.json(); }).then(function (data) {
+    function row(item) {
+      return '<div class="menu-item"><span><span data-lang="en">' + item.en + '</span><span data-lang="es">' + item.es + '</span></span><span class="price">' + item.price + '</span></div>';
+    }
+    var meats = data.meats.map(function (m) { return '<span class="chip">' + m + '</span>'; }).join('');
+    var html = '<div><h4 data-lang="en">Mains</h4><h4 data-lang="es">Platillos</h4>' + data.mains.map(row).join('') +
+               '<h4 data-lang="en" style="margin-top:16px">Meats</h4><h4 data-lang="es" style="margin-top:16px">Carnes</h4><div class="chips">' + meats + '</div></div>' +
+               '<div><h4 data-lang="en">Sides</h4><h4 data-lang="es">Acompañamientos</h4>' + data.sides.map(row).join('') +
+               '<h4 data-lang="en" style="margin-top:16px">Drinks</h4><h4 data-lang="es" style="margin-top:16px">Bebidas</h4>' + data.drinks.map(row).join('') + '</div>';
+    document.getElementById('home-menu').innerHTML = html;
+  }).catch(function () { /* static fallback stays */ });
+});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Taco H",
+  "servesCuisine": "Mexican",
+  "telephone": "216-760-5828",
+  "email": "taco.h.akron@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Akron", "addressRegion": "OH", "addressCountry": "US" },
+  "priceRange": "$"
+}
+</script>
+</body>
+</html>
