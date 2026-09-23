@@ -1,10 +1,10 @@
 {
-  "location": "Highland Square, Akron OH",
-  "location_es": "Highland Square, Akron Ohio",
-  "map_query": "Highland Square, Akron, OH",
-  "schedule": "Wed 5pm–8pm · Sat 12pm–8pm",
-  "schedule_es": "Mié 5pm–8pm · Sáb 12pm–8pm",
-  "note": "Check socials for pop-up stops",
-  "note_es": "Síguenos en redes para paradas sorpresa",
-  "_comment": "TODAY'S STOP single source — the truck updates this ONE file when parked. Sidebar card + map both read from here. ES pairs render via the language toggle."
+  "location": "Copley Rd tire store, Akron OH",
+  "location_es": "Llantera en Copley Rd, Akron Ohio",
+  "map_query": "Copley Road, Akron, OH",
+  "schedule": "Mon–Sat 11am–10pm",
+  "schedule_es": "Lun–Sáb 11am–10pm",
+  "note": "Target lot: Aldi / Gabe's across from Acme · schedule changes posted here + socials",
+  "note_es": "Meta: estacionamiento de Aldi / Gabe's frente a Acme · cambios de horario aquí y en redes",
+  "_comment": "TODAY'S STOP single source — Kate's answers 09-22: stationary through winter, Mon-Sat 11-10, permission at Copley Rd tire store now, target = Aldi/Gabe's lot. Map + card both read this file. ES pairs render via the language toggle."
 }
