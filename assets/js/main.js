@@ -14,24 +14,33 @@ function setLang(lang) {
   try { window.__pg && __pg('capture', 'lang_toggled', { lang: lang }); } catch (e) {}
 }
 
-/* stop.json → TODAY'S STOP card + map */
+/* stop → TODAY'S STOP card + map. API-first (KV-backed when admin set it);
+   falls back to the committed data/stop.json when the API is empty/unreachable. */
 async function loadStop() {
+  var data = null;
   try {
-    var res = await fetch('./data/stop.json', { cache: 'no-store' });
-    var data = await res.json();
-    var box = document.getElementById('stop-card');
-    if (box) {
-      box.innerHTML =
-        '<div class="stop-name"><span data-lang="en">' + escapeHtml(data.location) + '</span><span data-lang="es">' + escapeHtml(data.location_es || data.location) + '</span></div>' +
-        '<div class="stop-time"><span data-lang="en">' + escapeHtml(data.schedule) + '</span><span data-lang="es">' + escapeHtml(data.schedule_es || data.schedule) + '</span></div>' +
-        '<div><span data-lang="en">' + escapeHtml(data.note) + '</span><span data-lang="es">' + escapeHtml(data.note_es || data.note) + '</span></div>';
+    var res = await fetch('./api/stop', { cache: 'no-store' });
+    if (res.ok) data = await res.json();
+  } catch (e) {}
+  if (!data || !data.location) {
+    try {
+      var res2 = await fetch('./data/stop.json', { cache: 'no-store' });
+      data = await res2.json();
+    } catch (e2) {
+      console.warn('stop not loaded', e2);
+      return;
     }
-    var map = document.getElementById('stop-map');
-    if (map) {
-      map.src = 'https://www.google.com/maps?q=' + encodeURIComponent(data.map_query) + '&output=embed';
-    }
-  } catch (e) {
-    console.warn('stop.json not loaded', e);
+  }
+  var box = document.getElementById('stop-card');
+  if (box) {
+    box.innerHTML =
+      '<div class="stop-name"><span data-lang="en">' + escapeHtml(data.location) + '</span><span data-lang="es">' + escapeHtml(data.location_es || data.location) + '</span></div>' +
+      '<div class="stop-time"><span data-lang="en">' + escapeHtml(data.schedule) + '</span><span data-lang="es">' + escapeHtml(data.schedule_es || data.schedule) + '</span></div>' +
+      '<div><span data-lang="en">' + escapeHtml(data.note) + '</span><span data-lang="es">' + escapeHtml(data.note_es || data.note) + '</span></div>';
+  }
+  var map = document.getElementById('stop-map');
+  if (map) {
+    map.src = 'https://www.google.com/maps?q=' + encodeURIComponent(data.map_query) + '&output=embed';
   }
 }
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Taco H — Admin</title>
+  <link rel="stylesheet" href="../assets/css/taco.css">
+  <style>
+    /* Admin chrome uses explicit colors — the brand tokens are tuned for the
+       light site pages and render near-invisible on this dark internal page. */
+    body { background: #14100c; color: #f5ead8; padding: 24px 16px 60px; }
+    main { max-width: 560px; margin: 0 auto; }
+    h1 { font-family: 'Georgia', 'Times New Roman', serif; font-size: 1.6rem; margin: 0 0 4px; color: #F0D9A8; }
+    .sub { color: #cfc0a6; margin: 0 0 24px; font-size: .95rem; }
+    label { display: block; margin: 14px 0 4px; font-size: .92rem; font-weight: 600; color: #f5ead8; }
+    label small { font-weight: 400; color: #b9a988; font-size: .85rem; }
+    input, textarea { width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 1rem;
+      border: 1px solid rgba(255,255,255,.3); border-radius: 8px; background: #1f1913; color: #f5ead8;
+      font-family: inherit; }
+    textarea { resize: vertical; min-height: 44px; }
+    input:focus, textarea:focus { outline: 2px solid #F0D9A8; outline-offset: 1px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+    @media (max-width: 620px) { .grid { grid-template-columns: 1fr; gap: 0; } }
+    .actions { margin-top: 28px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    button { padding: 12px 22px; font-size: 1.05rem; font-weight: 700; border: 0; border-radius: 10px;
+      background: #F0D9A8; color: #14100c; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: wait; }
+    #status { font-size: .95rem; color: #f5ead8; }
+    #status.ok { color: #7ee08a; }
+    #status.err { color: #ff9a8b; }
+    .hint { color: #b9a988; font-size: .85rem; margin-top: 22px; line-height: 1.5; }
+    .flag { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; color: #b9a988; margin-left: 6px; }
+    .sep { border-top: 1px solid rgba(255,255,255,.15); margin: 26px 0 6px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Admin — Today's Stop</h1>
+  <p class="sub">Updates the location card on &nbsp;tacohakron.com — works from a phone. Fields left blank keep their current value.</p>
+
+  <form id="stop-form">
+    <div class="grid">
+      <div>
+        <label for="location">Location <span class="flag">EN</span></label>
+        <input id="location" name="location" maxlength="240" autocomplete="off">
+        <label for="location_es">Ubicación <span class="flag">ES</span></label>
+        <input id="location_es" name="location_es" maxlength="240" autocomplete="off">
+        <label for="schedule">Hours <span class="flag">EN</span></label>
+        <input id="schedule" name="schedule" maxlength="240" autocomplete="off">
+        <label for="schedule_es">Horario <span class="flag">ES</span></label>
+        <input id="schedule_es" name="schedule_es" maxlength="240" autocomplete="off">
+      </div>
+      <div>
+        <label for="map_query">Map query (Google) </label>
+        <input id="map_query" name="map_query" maxlength="240" autocomplete="off">
+        <label for="note">Note <span class="flag">EN</span></label>
+        <textarea id="note" name="note" maxlength="240" rows="3" autocomplete="off"></textarea>
+        <label for="note_es">Nota <span class="flag">ES</span></label>
+        <textarea id="note_es" name="note_es" maxlength="240" rows="3" autocomplete="off"></textarea>
+        <label for="passphrase">Passphrase</label>
+        <input id="passphrase" name="passphrase" type="password" maxlength="120" autocomplete="current-password" required>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" id="save-btn">Save / Publicar</button>
+      <span id="status"></span>
+    </div>
+  </form>
+
+  <div class="sep"></div>
+  <p class="hint">Blank fields are left unchanged — the full stop record is replaced by the submitted values only.<br>
+  The public site falls back to the committed <code>data/stop.json</code> if this store is ever empty or unreachable.</p>
+
+  <script>
+    (function () {
+      var form = document.getElementById('stop-form');
+      var statusEl = document.getElementById('status');
+      var btn = document.getElementById('save-btn');
+      var fields = ['location', 'location_es', 'map_query', 'schedule', 'schedule_es', 'note', 'note_es'];
+
+      function setStatus(text, kind) {
+        statusEl.textContent = text;
+        statusEl.className = kind || '';
+      }
+
+      /* Prefill from the live stop source (KV-backed when set, static otherwise).
+         Quiet on failure — blank fields are a fine starting state. */
+      function fillFrom(data) {
+        try {
+          fields.forEach(function (f) {
+            var el = document.getElementById(f);
+            if (el && data[f]) el.value = data[f];
+          });
+          return true;
+        } catch (e) { return false; }
+      }
+      fetch('./../api/stop', { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (d) { if (d && d.location) fillFrom(d); })
+        .catch(function () {
+          return fetch('./../data/stop.json', { cache: 'no-store' })
+            .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(fillFrom)
+            .catch(function () { /* quiet: blank fields are fine */ });
+        });
+
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        setStatus('Saving…', '');
+        btn.disabled = true;
+
+        var stop = {};
+        fields.forEach(function (f) {
+          var el = document.getElementById(f);
+          var v = (el && el.value || '').trim();
+          if (v) stop[f] = v;
+        });
+
+        fetch('./../api/stop', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ passphrase: document.getElementById('passphrase').value, stop: stop }),
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            if (res.ok && res.d && res.d.ok) {
+              setStatus('Saved ' + new Date().toLocaleTimeString() + ' — live on tacohakron.com.', 'ok');
+              document.getElementById('passphrase').value = '';
+            } else {
+              var msg = res.d && res.d.error ? 'Error: ' + res.d.error : 'Error ' + res.status;
+              setStatus(msg, 'err');
+            }
+          })
+          .catch(function () { setStatus('Network error — try again.', 'err'); })
+          .finally(function () { btn.disabled = false; });
+      });
+    })();
+  </script>
+</main>
+</body>
+</html>
