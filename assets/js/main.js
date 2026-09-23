@@ -18,9 +18,9 @@ async function loadStop() {
     var box = document.getElementById('stop-card');
     if (box) {
       box.innerHTML =
-        '<div class="stop-name">' + escapeHtml(data.location) + '</div>' +
-        '<div class="stop-time">' + escapeHtml(data.schedule) + '</div>' +
-        '<div>' + escapeHtml(data.note) + '</div>';
+        '<div class="stop-name"><span data-lang="en">' + escapeHtml(data.location) + '</span><span data-lang="es">' + escapeHtml(data.location_es || data.location) + '</span></div>' +
+        '<div class="stop-time"><span data-lang="en">' + escapeHtml(data.schedule) + '</span><span data-lang="es">' + escapeHtml(data.schedule_es || data.schedule) + '</span></div>' +
+        '<div><span data-lang="en">' + escapeHtml(data.note) + '</span><span data-lang="es">' + escapeHtml(data.note_es || data.note) + '</span></div>';
     }
     var map = document.getElementById('stop-map');
     if (map) {

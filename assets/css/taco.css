@@ -116,10 +116,14 @@ footer a{color:var(--gold)}
 footer strong{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:1px;color:var(--gold)}
 footer .wrap{display:flex;justify-content:center;text-align:center;gap:26px;flex-wrap:wrap}
 
-/* language hiding */
-[data-lang]{display:none}
-body.en [data-lang="en"]{display:block}
-body.es [data-lang="es"]{display:block}
+/* language hiding — robust specificity */
+[data-lang]{display:none !important}
+body.en [data-lang="en"]{display:block !important}
+body.es [data-lang="es"]{display:block !important}
+/* pills/headers keep pill shape in active language */
+body.en h3[data-lang="en"], body.es h3[data-lang="es"]{display:inline-block !important}
+/* the toggle buttons are controls, not content — always visible */
+.lang button{display:inline-block !important}
 
 /* skeleton flags never ship */
 .skeleton-flag{display:none}

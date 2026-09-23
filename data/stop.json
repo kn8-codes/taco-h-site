@@ -1,7 +1,10 @@
 {
   "location": "Highland Square, Akron OH",
+  "location_es": "Highland Square, Akron Ohio",
   "map_query": "Highland Square, Akron, OH",
   "schedule": "Wed 5pm–8pm · Sat 12pm–8pm",
+  "schedule_es": "Mié 5pm–8pm · Sáb 12pm–8pm",
   "note": "Check socials for pop-up stops",
-  "_comment": "TODAY'S STOP single source — the truck updates this ONE file when parked. Sidebar card + map both read from here."
+  "note_es": "Síguenos en redes para paradas sorpresa",
+  "_comment": "TODAY'S STOP single source — the truck updates this ONE file when parked. Sidebar card + map both read from here. ES pairs render via the language toggle."
 }

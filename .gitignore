@@ -4,3 +4,4 @@ preview_*.png
 mockup_brand*.png
 mockup_brand*.html
 _render*
+.vercel
