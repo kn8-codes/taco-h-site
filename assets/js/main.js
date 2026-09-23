@@ -1,13 +1,17 @@
-/* TACO H — skeleton v0 (2026-09-22 · Egon) */
+/* TACO H — skeleton + analytics hooks (2026-09-22 · Egon) */
 
 /* EN/ES toggle */
 function setLang(lang) {
   document.body.classList.toggle('en', lang === 'en');
   document.body.classList.toggle('es', lang === 'es');
+  document.documentElement.lang = lang === 'es' ? 'es' : 'en';
   document.querySelectorAll('.lang button').forEach(function (b) {
-    b.classList.toggle('active', b.dataset.lang === lang);
+    var on = b.dataset.lang === lang;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
   });
   try { localStorage.setItem('taco-lang', lang); } catch (e) {}
+  try { window.__pg && __pg('capture', 'lang_toggled', { lang: lang }); } catch (e) {}
 }
 
 /* stop.json → TODAY'S STOP card + map */
@@ -27,7 +31,6 @@ async function loadStop() {
       map.src = 'https://www.google.com/maps?q=' + encodeURIComponent(data.map_query) + '&output=embed';
     }
   } catch (e) {
-    /* skeleton error tolerance — the static card text remains */
     console.warn('stop.json not loaded', e);
   }
 }
@@ -44,4 +47,18 @@ document.addEventListener('DOMContentLoaded', function () {
   try { saved = localStorage.getItem('taco-lang') || 'en'; } catch (e) {}
   setLang(saved);
   loadStop();
+  /* analytics hooks — bounded taxonomy (ANALYTICS_SPEC) */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    try {
+      if (!window.__pg) return;
+      if (/^tel:/.test(href)) { __pg('capture', 'contact_tapped', { kind: 'phone' }); }
+      else if (/^mailto:/.test(href)) { __pg('capture', 'contact_tapped', { kind: 'email' }); }
+      else if (/^https?:/.test(href) && !/tacohakron\.com/.test(href)) {
+        __pg('capture', 'social_outbound', { platform: a.className.indexOf('fb') > -1 ? 'facebook' : 'instagram' });
+      }
+    } catch (e) {}
+  });
 });

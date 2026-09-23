@@ -60,13 +60,12 @@
         <h3 data-lang="en">Today's stop</h3>
         <h3 data-lang="es">Parada de hoy</h3>
         <div id="stop-card">
-          <div class="stop"><span data-lang="en">Highland Square, Akron OH</span><span data-lang="es">Highland Square, Akron Ohio</span></div>
-          <div class="stop-time" style="color:#5c4630;margin-top:6px"><span data-lang="en">Wed 5pm–8pm · Sat 12pm–8pm</span><span data-lang="es">Mié 5pm–8pm · Sáb 12pm–8pm</span></div>
-          <div style="color:#5c4630;margin-top:2px"><span data-lang="en">Check socials for pop-up stops</span><span data-lang="es">Síguenos en redes para paradas sorpresa</span></div>
+          <div class="stop-name"><span data-lang="en">Copley Rd tire store, Akron OH</span><span data-lang="es">Llantera en Copley Rd, Akron Ohio</span></div>
+          <div class="stop-time" style="color:#5c4630;margin-top:6px"><span data-lang="en">Mon–Sat 11am–10pm</span><span data-lang="es">Lun–Sáb 11am–10pm</span></div>
+          <div style="color:#5c4630;margin-top:2px"><span data-lang="en">Target lot: Aldi / Gabe's · changes posted here + socials</span><span data-lang="es">Meta: Aldi / Gabe's · cambios aquí y en redes</span></div>
         </div>
         <div class="chips">
-          <span class="chip">Wed 5–8</span>
-          <span class="chip">Sat 12–8</span>
+          <span class="chip">Mon–Sat 11–10</span>
           <span class="chip">Pop-ups</span>
         </div>
       </div>
@@ -81,7 +80,7 @@
       </div>
     </div>
     <div class="module map-mod">
-      <iframe class="map-frame" id="stop-map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Highland%20Square%2C%20Akron%2C%20OH&output=embed"></iframe>
+      <iframe class="map-frame" id="stop-map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Copley%20Road%2C%20Akron%2C%20OH&output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -103,9 +102,11 @@
           <div class="menu-item"><span data-lang="en">"Supreme" add-on</span><span data-lang="es">Extra "Supreme"</span><span class="price">+$1</span></div>
           <h4 data-lang="en" style="margin-top:22px">Meats</h4><h4 data-lang="es" style="margin-top:22px">Carnes</h4>
           <div class="chips">
-            <span class="chip">Al Pastor</span><span class="chip">Birria</span><span class="chip">Carnitas</span>
-            <span class="chip">Chicken</span><span class="chip">Chorizo</span><span class="chip">Steak</span>
-            <span class="chip">Shrimp</span><span class="chip">Fish</span><span class="chip">Veggies</span>
+            <span class="chip" data-lang="en">Al Pastor</span><span class="chip" data-lang="es">Al Pastor</span><span class="chip" data-lang="en">Birria</span><span class="chip" data-lang="es">Birria</span>
+            <span class="chip" data-lang="en">Carnitas</span><span class="chip" data-lang="es">Carnitas</span><span class="chip" data-lang="en">Chicken</span><span class="chip" data-lang="es">Pollo</span>
+            <span class="chip" data-lang="en">Chorizo</span><span class="chip" data-lang="es">Chorizo</span><span class="chip" data-lang="en">Steak</span><span class="chip" data-lang="es">Res</span>
+            <span class="chip" data-lang="en">Shrimp</span><span class="chip" data-lang="es">Camarón</span><span class="chip" data-lang="en">Fish / Tilapia</span><span class="chip" data-lang="es">Pescado / Tilapia</span>
+            <span class="chip" data-lang="en">Veggies</span><span class="chip" data-lang="es">Verduras</span>
           </div>
         </div>
         <div>
@@ -142,15 +143,17 @@
   </div>
 </footer>
 
+<script src="./assets/js/analytics.js"></script>
 <script src="./assets/js/main.js"></script>
 <script>
 /* Home menu refreshes from the single source (data/menu.json); static rows above are the no-JS fallback. */
 document.addEventListener('DOMContentLoaded', function () {
   fetch('./data/menu.json').then(function (r) { return r.json(); }).then(function (data) {
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
     function row(item) {
-      return '<div class="menu-item"><span><span data-lang="en">' + item.en + '</span><span data-lang="es">' + item.es + '</span></span><span class="price">' + item.price + '</span></div>';
+      return '<div class="menu-item"><span><span data-lang="en">' + esc(item.en) + '</span><span data-lang="es">' + esc(item.es) + '</span></span><span class="price">' + esc(item.price) + '</span></div>';
     }
-    var meats = data.meats.map(function (m) { return '<span class="chip">' + m + '</span>'; }).join('');
+    var meats = data.meats.map(function (m) { return '<span class="chip" data-lang="en">' + esc(m.en) + '</span><span class="chip" data-lang="es">' + esc(m.es) + '</span>'; }).join('');
     var html = '<div><h4 data-lang="en">Mains</h4><h4 data-lang="es">Platillos</h4>' + data.mains.map(row).join('') +
                '<h4 data-lang="en" style="margin-top:16px">Meats</h4><h4 data-lang="es" style="margin-top:16px">Carnes</h4><div class="chips">' + meats + '</div></div>' +
                '<div><h4 data-lang="en">Sides</h4><h4 data-lang="es">Acompañamientos</h4>' + data.sides.map(row).join('') +

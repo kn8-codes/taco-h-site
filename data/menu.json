@@ -9,7 +9,7 @@
     { "en": "Burrito", "es": "Burrito", "price": "$13", "desc_en": "Choice of meat, rice, beans, cheese, onion, cilantro", "desc_es": "Carne a elegir, arroz, frijoles, queso, cebolla, cilantro" },
     { "en": "\"Supreme\" add-on", "es": "Extra \"Supreme\"", "price": "+$1", "desc_en": "Choice of corn or flour tortilla, lettuce, tomato, sour cream, cheese", "desc_es": "Tortilla de maíz o harina a elegir, lechuga, tomate, crema, queso" }
   ],
-  "meats": ["Al Pastor", "Birria", "Carnitas", "Chicken", "Chorizo", "Steak", "Shrimp", "Fish / Tilapia", "Vegetables"],
+  "meats": [{"en":"Al Pastor","es":"Al Pastor"}, {"en":"Birria","es":"Birria"}, {"en":"Carnitas","es":"Carnitas"}, {"en":"Chicken","es":"Pollo"}, {"en":"Chorizo","es":"Chorizo"}, {"en":"Steak","es":"Res"}, {"en":"Shrimp","es":"Camarón"}, {"en":"Fish / Tilapia","es":"Pescado / Tilapia"}, {"en":"Vegetables","es":"Verduras"}],
   "sides": [
     { "en": "Rice", "es": "Arroz", "price": "$5" },
     { "en": "Beans", "es": "Frijoles", "price": "$5" },

@@ -8,7 +8,7 @@
 :root{
   --parchment:#f1d8ae; --dark:#4A3020; --dark2:#3A2418;
   --brick:#B23A2A; --brick-dark:#8E2B1E; --gold:#E0A100; --green:#2E5233;
-  --ink:#2B2118; --paper:#FFFDF6;
+  --ink:#2B2118; --paper:#FFFDF6; --corn:#F0D9A8;
   --font-display:Georgia,'Times New Roman',serif;
   --font-stamp:'Bebas Neue','Archivo Black',sans-serif;
   --font-head:'Archivo Black',sans-serif;
@@ -45,10 +45,10 @@ body{font-family:var(--font-body);color:#EFE3CE;line-height:1.6;
 .wordmark{font-family:var(--font-display);font-weight:700;font-size:1.8rem;letter-spacing:2px;color:var(--gold);text-decoration:none}
 .tagline{font-family:var(--font-stamp);font-size:.85rem;letter-spacing:3px;color:#D8C4A3;text-transform:uppercase;opacity:.85;margin-top:2px}
 nav{margin-left:auto;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-nav a{color:#EFE3CE;text-decoration:none;font-family:var(--font-head);font-size:.8rem;letter-spacing:1px;text-transform:uppercase}
+nav a{color:#EFE3CE;text-decoration:none;font-family:var(--font-head);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;padding:10px 6px}
 nav a:hover{color:var(--gold)}
 .lang{display:flex;gap:6px}
-.lang button{background:transparent;border:1.5px solid var(--gold);border-radius:999px;padding:5px 12px;font-size:.8rem;cursor:pointer;color:var(--gold)}
+.lang button{background:transparent;border:1.5px solid var(--gold);border-radius:999px;padding:12px 16px;font-size:.82rem;cursor:pointer;color:var(--gold)}
 .lang button.active{background:var(--gold);color:var(--dark2)}
 
 /* hero — modular: badge + title + copy in one big rounded square */
@@ -68,7 +68,8 @@ section{padding:14px 0}
 @media(min-width:860px){.grid{grid-template-columns:1.15fr .85fr}}
 .card{background:var(--paper);color:var(--ink);border:2px solid var(--dark);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow)}
 .card h3{font-family:var(--font-head);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--parchment);background:var(--brick-dark);display:inline-block;padding:4px 12px;border-radius:6px;margin-bottom:16px}
-.stop{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.5px;color:var(--ink)}
+.stop,.stop-name{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.5px;color:var(--ink)}
+.stop-time{color:var(--ink)}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .chip{font-family:var(--font-stamp);letter-spacing:1px;border:1.5px solid var(--brick);color:var(--brick-dark);border-radius:999px;padding:5px 14px;font-size:.95rem;background:var(--parchment)}
 .map-mod{margin-top:28px;padding:12px}
@@ -81,7 +82,7 @@ section{padding:14px 0}
 .menu-group h3{font-family:var(--font-head);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--parchment);background:var(--brick-dark);display:inline-block;padding:4px 12px;border-radius:6px;margin-bottom:16px}
 .menu-item{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dotted rgba(43,33,24,.4);color:var(--ink)}
 .menu-item .price{font-weight:700;color:var(--green);white-space:nowrap}
-.item-desc{display:block;font-size:.8rem;color:#8a7a62;margin-top:3px}
+.item-desc{display:block;font-size:.8rem;color:#6f5c48;margin-top:3px}
 .menu-note{font-size:.85rem;color:#b8a27f;margin-top:18px;text-align:center}
 
 /* stop pods — Today's stop and Contact each in their own module */
